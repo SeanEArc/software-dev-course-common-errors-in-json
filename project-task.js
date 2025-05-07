@@ -47,26 +47,27 @@ but it contains multiple syntax errors that prevent it from being parsed.
 const invalidBookingJSON = `
 {
   "hotelName": "Grand City Hotel",
-  "checkInDate": "2024-05-15"
-  "checkOutDate": "2024-05-20",
+  "checkInDate": "2024-05-15",
+  "checkOutDate": "2024-05-20", // Missing Comma = (Needed bc it is another item in the object)
   "guests": [
     {
-      name: "Alice Johnson",
-      "age": 30,
+      "name" : "Alice Johnson", // Missing quotation marks
+      "age" : 30,
       "email": "alice.johnson@example.com"
     },
     {
       "name": "Bob Smith",
-      "age": undefined,
+      "age": null,              // Needs to be Null (Undefined doesn't exsist in JSON)
       "email": "bob.smith@example"
     }
   ],
   "roomDetails": {
     "type": "Suite",
     "pricePerNight": 200,
-    "amenities": ["WiFi", "Breakfast", "Parking",]
+    "amenities": ["WiFi", "Breakfast", "Parking"]  // Comma at the end of parking. Not neccessary and JSON is not forgiving of syntax errors.
   }
 }
+
 `;
 
 
